@@ -86,6 +86,44 @@ pipeline.py    # Pipeline 入口
 fetch.yaml     # OpenAPI 源配置
 ```
 
+## MCP 客户端配置
+
+本项目使用 `streamable-http` 协议，启动后在 `http://localhost:15277/mcp` 提供服务。
+
+### Claude Desktop / Cursor / VS Code
+
+在 MCP 客户端配置文件中添加：
+
+```json
+{
+  "mcpServers": {
+    "openapi-vector": {
+      "url": "http://localhost:15277/mcp"
+    }
+  }
+}
+```
+
+### Docker 部署后连接
+
+```json
+{
+  "mcpServers": {
+    "openapi-vector": {
+      "url": "http://your-server-ip:15277/mcp"
+    }
+  }
+}
+```
+
+### 配置文件位置
+
+| 客户端 | 配置文件路径 |
+|--------|--------------|
+| Claude Desktop | `~/.claude/claude_desktop_config.json` |
+| Cursor | `~/.cursor/mcp.json` |
+| VS Code (Copilot) | `.vscode/mcp.json` |
+
 ## 技术栈
 
-FastMCP / Milvus (hybrid search) / LangChain / OpenAI-compatible API
+FastMCP (streamable-http) / Milvus (hybrid search) / LangChain / OpenAI-compatible API
