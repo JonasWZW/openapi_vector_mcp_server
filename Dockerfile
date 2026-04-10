@@ -25,4 +25,4 @@ COPY . .
 
 EXPOSE 15277
 
-ENTRYPOINT ["python", "mcp_server/server.py"]
+CMD ["python", "mcp_server/server.py"]
