@@ -1,0 +1,33 @@
+# IDE
+.idea/
+.vscode/
+
+# Git
+.git/
+.gitignore
+
+# Claude local settings
+.claude/
+
+# Test scripts
+test/
+
+# OpenSpec internal
+openspec/
+
+# Environment (use runtime env instead)
+.env
+.env.example
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs
+*.log
+server.log
+
+# Development files
+*.md
+!README.md

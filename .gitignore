@@ -1,0 +1,29 @@
+# Claude settings (may contain MCP server names)
+.claude/
+
+# IDE
+.idea/
+.vscode/
+
+# Environment variables (contains secrets)
+.env
+
+# Test scripts (local development)
+test/
+
+# OpenSpec internal notes
+openspec/
+
+# Fetched raw data (business-specific)
+
+# Washed documents (business-specific, keep example)
+docs/*.json
+!docs/example-api.json
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+server.log

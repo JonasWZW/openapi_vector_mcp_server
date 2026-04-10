@@ -1,0 +1,8 @@
+httpx
+fastmcp
+langchain
+langchain-openai
+langchain-text-splitters
+pymilvus
+python-dotenv
+pyyaml

@@ -1,0 +1,118 @@
+{
+  "app_name": "example-api",
+  "collection_name": "example_api",
+  "description": "示例 API 服务，展示 OpenAPI Vector MCP Server 的基本功能。",
+  "version": "1.0.0",
+  "title": "Example API",
+  "total_apis": 3,
+  "operations": [
+    {
+      "operation_id": "getUserById",
+      "path": "/innerService/users/{id}",
+      "method": "GET",
+      "summary": "根据ID获取用户信息",
+      "description": "返回指定用户的详细信息，包括姓名、邮箱、角色等。",
+      "tags": ["用户管理"],
+      "deprecated": false,
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "integer",
+          "description": "用户ID"
+        }
+      ],
+      "request": null,
+      "response": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "integer"},
+          "name": {"type": "string"},
+          "email": {"type": "string"},
+          "role": {"type": "string"}
+        }
+      }
+    },
+    {
+      "operation_id": "createUser",
+      "path": "/innerService/users",
+      "method": "POST",
+      "summary": "创建新用户",
+      "description": "根据请求体创建新用户账号，返回创建成功的用户信息。",
+      "tags": ["用户管理"],
+      "deprecated": false,
+      "parameters": [],
+      "request": {
+        "type": "object",
+        "required": ["name", "email"],
+        "properties": {
+          "name": {"type": "string", "description": "用户姓名"},
+          "email": {"type": "string", "description": "用户邮箱"},
+          "role": {"type": "string", "default": "user"}
+        }
+      },
+      "response": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "integer"},
+          "name": {"type": "string"},
+          "email": {"type": "string"},
+          "role": {"type": "string"}
+        }
+      }
+    },
+    {
+      "operation_id": "listOrders",
+      "path": "/innerService/orders",
+      "method": "GET",
+      "summary": "查询订单列表",
+      "description": "分页查询订单信息，支持按状态、日期筛选。",
+      "tags": ["订单管理"],
+      "deprecated": false,
+      "parameters": [
+        {
+          "name": "page",
+          "in": "query",
+          "required": false,
+          "type": "integer",
+          "description": "页码，默认1"
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false,
+          "type": "integer",
+          "description": "每页数量，默认10"
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "description": "订单状态筛选"
+        }
+      ],
+      "request": null,
+      "response": {
+        "type": "object",
+        "properties": {
+          "total": {"type": "integer"},
+          "page": {"type": "integer"},
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {"type": "integer"},
+                "userId": {"type": "integer"},
+                "amount": {"type": "number"},
+                "status": {"type": "string"}
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

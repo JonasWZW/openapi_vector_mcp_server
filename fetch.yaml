@@ -1,0 +1,5 @@
+apps:
+  - app_name: example-api
+    collection_name: example_api
+    description: 示例 API 服务，展示 OpenAPI Vector MCP Server 的基本功能。提供用户管理、订单查询等基础接口。
+    url: https://petstore3.swagger.io/api/v3/openapi.json
