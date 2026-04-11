@@ -147,9 +147,8 @@ def wash_file(json_path: Path) -> Path:
     # Parse all operations (only keep paths containing 'innerService')
     operations = []
     for path, path_item in paths.items():
-        if "innerService" not in path:
-            continue
-        # if "innerService" not in path and "task_manager" not in path:
+        # todo filter uri
+        # if "/api/v1" not in path:
         #     continue
         for method, op_spec in path_item.items():
             if method.upper() in ("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS", "HEAD"):
